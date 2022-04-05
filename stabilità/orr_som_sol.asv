@@ -24,19 +24,14 @@ nSamples = numel(t);
 x = 0:0.01:30*L;
 
 
-for n = 1:29 
-    for j = 1:numel(t)
-        for k = 1:numel(x)
-            xk = x(k);
-            solxk(n, :) = exp(i*alpha*xk).*exp(i*cr(n).*t).*exp(ci(n).*t);
-            figure(1);
-            hold on;
-            plot(xk, imag(solxk))
-            pause(0.05)
-        end
-    end
-end
-
+n = 1   %mode utilised 
+for j = 1:numel(t)
+    for k = 1:numel(x)
+        xk = x(k);
+        solxk = exp(i*alpha*xk).*exp(i*cr(n).*t).*exp(ci(n).*t);
+        figure(1);
+        hold on;
+        plot(xk, solxk)
 %
 %extracts the vector of the waves 
 %for j = 1:29
